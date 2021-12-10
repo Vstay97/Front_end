@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+<meta charset = "UTF-8">
+<title>组件</title>
+<script src = "https://unpkg.com/vue@next"></script>
+</head>
+<body>
+
+<div id = "app"></div>
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                inputValue: '',
+                list: [],
+            }
+        },
+        methods: {
+            handleAddItem() {
+                this.list.push(this.inputValue)
+                this.inputValue = ''
+            }
+        },
+        template: `
+			<div>
+				<my-title />
+				<input v-model="inputValue" />
+				<button v-on:click="handleAddItem">增加新项目</button>
+				<ul>
+					<my-jiali
+						v-for="(item,index) of list"
+						v-bind:item="item"
+						v-bind:index="index"
+					/>
+					<!-- <li v-for="(item,index) of list">[{{index}}]{{item}}</li> -->
+				</ul>
+			</div>
+
+		`
+    })
+    app.component('my-title', {
+        template: '<h1 style="text-align: center">象牙山洗脚城</h1>'
+    })
+    app.component('my-jiali', {
+        props: ['item', 'index'],
+        template: `<li>[{{index}}]-{{item}}</li>`
+    })
+    app.mount("#app")
+</script>
+
+
+</body>
+</html>
