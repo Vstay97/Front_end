@@ -13,16 +13,19 @@
     Vue.createApp({
         data() {
             return {
+                inputValue: '',
                 list: [],
             }
         },
         methods: {
             handleAddItem() {
-                this.list.push("新项目")
+                this.list.push(this.inputValue)
+                this.inputValue = ''
             }
         },
         template: `
 			<div>
+				<input v-model="inputValue" />
 				<button v-on:click="handleAddItem">增加新项目</button>
 				<ul>
 					<li v-for="(item,index) of list">[{{index}}]{{item}}</li>
