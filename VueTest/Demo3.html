@@ -10,30 +10,39 @@
 
 <div id = "app"></div>
 
+</body>
 <script>
 	Vue.createApp({
 		data() {
 			return {
-				content: '欢迎您的光临，贵宾一位'
+				content: '',
+				setMeal: '套餐1 套餐2 套餐3 套餐4',
+				isShowMeal: false
 			}
 		},
 		methods: {
 			welcomeBtnClick() {
-				this.content = '顾客来啦！'
+				this.content = '顾客来啦！';
 			},
-			byeBtnClick(){
-				this.content = '顾客走啦！'
+			byeBtnClick() {
+				this.content = '顾客走啦！';
+			},
+			showOrHideBtnClick() {
+				this.isShowMeal = !this.isShowMeal;
 			},
 		},
-		template:`<div>
+		template: `<div>
 				       <div>{{content}}</div>
 				       <button v-on:click="welcomeBtnClick">有顾客来</button> &nbsp;
 				       <button v-on:click="byeBtnClick">有顾客走</button>
-				       <div v-on:click="byeBtnClick"></div>
+				       <div>
+				            <div v-if="isShowMeal">{{setMeal}}</div>
+				            <button v-on:click="showOrHideBtnClick">显示/隐藏套餐</button>
+					   </div>
 				 </div>`
 	}).mount("#app")
 </script>
 
 
-</body>
+
 </html>
