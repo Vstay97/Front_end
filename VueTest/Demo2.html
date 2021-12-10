@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<title>计数器</title>
+	<script src = "https://unpkg.com/vue@next"></script>
+</head>
+<body>
+
+<div id = "app"></div>
+
+<script>
+	Vue.createApp({
+		data() {
+			return {
+				counter: 1
+			}
+		},
+		mounted() {
+			console.log('页面加载完成后-自动执行')
+			setInterval( ()=>{
+				this.counter += 1;  // 这个this.counter指向的就是data中的counte
+				// this.$data.counter += 1      // 效果晓彤
+			},1000)     // 一秒执行一次
+		},
+		template: '<div>{{counter}}</div>'
+	}).mount("#app");
+</script>
+
+</body>
+</html>
