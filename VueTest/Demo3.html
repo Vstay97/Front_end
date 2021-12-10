@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<!--	来宾欢迎语-->
+	<title>象牙山洗脚城</title>
+	<script src = "https://unpkg.com/vue@next"></script>
+</head>
+<body>
+
+<div id = "app"></div>
+
+<script>
+	Vue.createApp({
+		data() {
+			return {
+				content: '欢迎您的光临，贵宾一位'
+			}
+		},
+		methods: {
+			welcomeBtnClick() {
+				this.content = '顾客来啦！'
+			},
+			byeBtnClick(){
+				this.content = '顾客走啦！'
+			},
+		},
+		template:`<div>
+				       <div>{{content}}</div>
+				       <button v-on:click="welcomeBtnClick">有顾客来</button> &nbsp;
+				       <button v-on:click="byeBtnClick">有顾客走</button>
+				       <div v-on:click="byeBtnClick"></div>
+				 </div>`
+	}).mount("#app")
+</script>
+
+
+</body>
+</html>
