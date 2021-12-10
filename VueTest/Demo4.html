@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
-	<meta charset = "UTF-8">
-	<title>列表</title>
-	<script src = "https://unpkg.com/vue@next"></script>
+<meta charset = "UTF-8">
+<title>列表</title>
+<script src = "https://unpkg.com/vue@next"></script>
 </head>
 <body>
 
 <div id = "app"></div>
 
 <script>
-	Vue.createApp({
-		data() {
-			return {
-				list: ['1-小白','2-小红','3-小黄']
-			}
-		},
-		methods() {
+    Vue.createApp({
+        data() {
+            return {
+                list: [],
+            }
+        },
+        methods: {
+            handleAddItem() {
+                this.list.push("新项目")
+            }
+        },
+        template: `
+			<div>
+				<button v-on:click="handleAddItem">增加新项目</button>
+				<ul>
+					<li v-for="(item,index) of list">[{{index}}]{{item}}</li>
+				</ul>
+			</div>
 
-		},
-		template: `
-			<ul>
-				<li v-for="item of list">{{item}}</li>
-				<li v-for="(item,index) of list">[{{index}}]{{item}}</li>
-			</ul>
 		`
-	}).mount('#app')
+    }).mount("#app")
 </script>
 
 
