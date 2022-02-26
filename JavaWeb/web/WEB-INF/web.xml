@@ -11,6 +11,51 @@
         <servlet-name>AddServlet</servlet-name>
         <url-pattern>/add</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Session_</servlet-name>
+        <servlet-class>com.vstay.servlets.Session_</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Session_</servlet-name>
+        <url-pattern>/Session</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>SessionSave</servlet-name>
+        <servlet-class>com.vstay.servlets.SessionSave</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SessionSave</servlet-name>
+        <url-pattern>/SessionSave</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>SessionGet</servlet-name>
+        <servlet-class>com.vstay.servlets.SessionGet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SessionGet</servlet-name>
+        <url-pattern>/SessionGet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>RequestDispatcher</servlet-name>
+        <servlet-class>com.vstay.servlets.RequestDispatcher_</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RequestDispatcher</servlet-name>
+        <url-pattern>/RequestDispatcher</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RequestDispatcherDemo</servlet-name>
+        <servlet-class>com.vstay.servlets.RequestDispatcherDemo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RequestDispatcherDemo</servlet-name>
+        <url-pattern>/RequestDispatcherDemo</url-pattern>
+    </servlet-mapping>
     <!--
     1. 用户发请求， action=add
     2. 项目中，web.xml中找到url-pattern = /add     -> 找到12行
