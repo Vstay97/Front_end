@@ -9,6 +9,9 @@ import java.io.IOException;
 public class AddServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // post方式下, 设置编码, 防止中文乱码
+        request.setCharacterEncoding("UTF-8");
+
         String fname = request.getParameter("fname");
         String priceStr = request.getParameter("price");
         Integer price = Integer.parseInt(priceStr);
